@@ -5,16 +5,61 @@
  */
 package package2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  *
  * @author ryanharris
  */
 public class Node {
     private State state;
-    private Node parentNode;
+    private Node parent =null;
     private Action action;
-    public Node(Action action, Node node, int pathCost){
+    private int pathCost;
+    private ArrayList<Node> childNodes = new ArrayList<>();
     
-}
     
+    public Node(Action action){
+        this.action=action;
+    }
+    
+    
+    public Node(Action action, Node parent, int pathCost){
+        this.action = action;
+        this.setParent(parent);
+        this.pathCost = pathCost;
+    
+    }
+    
+    public void addChild(Action action, int pathCost){
+        Node child = new Node(action, this, pathCost);
+        this.childNodes.add(child);
+    }
+    
+    public String getChildren(){
+        return Arrays.toString(this.childNodes.toArray());
+    }
+    
+    public void setParent(Node parent){
+        this.parent = parent;
+    
+    }
+    
+    public Action getAction(Action action){
+        return action;
+    }
+
+    public void setAction(Action action){
+        this.action = action;  
+    }
+    
+    
+    public static void main(String[] args){
+        Node parentNode1 = new Node(new Action("Parent"));
+        parentNode1.addChild(new Action("childNode"),1);
+                parentNode1.addChild(new Action("childNode"),1);
+
+        System.out.println(parentNode1.getChildren());
+    }
 }

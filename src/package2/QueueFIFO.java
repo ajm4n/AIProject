@@ -1,4 +1,3 @@
-@ -0,0 +1,71 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -47,7 +46,7 @@ public class QueueFIFO<T>{
     
     public static void main(String[] args){
         QueueFIFO queue = new QueueFIFO();
-        String string = "Hello";
+        Action string = new Action("Hello");
         queue.insert(string);
         System.out.println(queue.toString());
         queue.pop();
