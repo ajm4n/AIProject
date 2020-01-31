@@ -3,16 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ryan/Documents/GitHub/AiProject/src/package2/ValidityChecker.java</file>
-            <file>file:/C:/Users/Ryan/Documents/GitHub/AiProject/src/package2/Sequence.java</file>
-            <file>file:/C:/Users/Ryan/Documents/GitHub/AiProject/src/basic_ai/ValidityChecker.java</file>
-            <file>file:/C:/Users/Ryan/Documents/GitHub/AiProject/src/package2/Agent.java</file>
-            <file>file:/C:/Users/Ryan/Documents/GitHub/AiProject/src/package2/Action.java</file>
-            <file>file:/C:/Users/Ryan/Documents/GitHub/AiProject/src/package2/State.java</file>
-            <file>file:/C:/Users/Ryan/Documents/GitHub/AiProject/src/package2/Node.java</file>
-            <file>file:/C:/Users/Ryan/Documents/GitHub/AiProject/src/package2/Problem.java</file>
-            <file>file:/C:/Users/Ryan/Documents/GitHub/AiProject/src/package2/QueueFIFO.java</file>
-            <file>file:/C:/Users/Ryan/Documents/GitHub/AiProject/src/package2/Percept.java</file>
+            <file>file:/Users/ryanharris/Desktop/CSC480/AiProject/src/package2/Node.java</file>
+            <file>file:/Users/ryanharris/Desktop/CSC480/AiProject/src/package2/Percept.java</file>
+            <file>file:/Users/ryanharris/Desktop/CSC480/AiProject/src/package2/ValidityChecker.java</file>
         </group>
     </open-files>
 </project-private>

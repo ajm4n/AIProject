@@ -17,11 +17,12 @@ public class Node {
     private Node parent =null;
     private Action action;
     private int pathCost;
-    private ArrayList<Node> childNodes = new ArrayList<>();
+    private ArrayList<Node> childNodes;
     
     
-    public Node(Action action){
+    public Node(Action action, int pathCost){
         this.action=action;
+        this.pathCost = pathCost;
     }
     
     
@@ -34,6 +35,7 @@ public class Node {
     
     public void addChild(Action action, int pathCost){
         Node child = new Node(action, this, pathCost);
+        child.setParent(this);
         this.childNodes.add(child);
     }
     
@@ -56,9 +58,9 @@ public class Node {
     
     
     public static void main(String[] args){
-        Node parentNode1 = new Node(new Action("Parent"));
+        Node parentNode1 = new Node(new Action("Parent"),1 );
         parentNode1.addChild(new Action("childNode"),1);
-                parentNode1.addChild(new Action("childNode"),1);
+        parentNode1.addChild(new Action("childNode"),1);
 
         System.out.println(parentNode1.getChildren());
     }
