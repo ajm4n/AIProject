@@ -75,7 +75,6 @@
     <Component class="javax.swing.JButton" name="processButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Process data"/>
-        <Property name="actionCommand" type="java.lang.String" value="Process data"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="processButtonActionPerformed"/>

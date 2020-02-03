@@ -41,9 +41,9 @@ public class ValidityChecker {
            return "This is a valid input.";
         }
        
-    }
+    } //end check8puzzle
    
-    public String checkMC(String input){
+    public String checkMandC(String input){
         String[] hash = parseInput(input);
         String currentState = hash[0];
         String desiredState = hash[1]; 
@@ -55,9 +55,7 @@ public class ValidityChecker {
             return "Puzzle not valid.";
         }
  
-    }
-    
-    
+    } //end checkMandC
     
     public String[] parseInput(String puzzle) {
         TextField outputArea;
@@ -73,7 +71,7 @@ public class ValidityChecker {
             }
       
             else{
-                return("Make sure puzzle is in the example form");
+                System.out.println("Make sure puzzle is in the example form");
             }
         }
         
@@ -86,11 +84,11 @@ public class ValidityChecker {
             }
             else
            {
-                return("Make sure input is in form M&C#000000#000000");
+                System.out.println("Make sure input is in form M&C#000000#000000");
             }
         }
         
         return null;
         
-    }
+    } //end parseInput
 }

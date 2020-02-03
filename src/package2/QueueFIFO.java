@@ -19,8 +19,7 @@ public class QueueFIFO<T>{
     private ArrayList<T> arrayList;
     
     public QueueFIFO(){arrayList = new ArrayList<>();}
-
-          
+     
     public void insert(T node){
         arrayList.add(node);
     }
@@ -48,9 +47,9 @@ public class QueueFIFO<T>{
         QueueFIFO queue = new QueueFIFO();
         Action string = new Action("Hi!");
         queue.insert(string);
-        return(queue.toString());
+        System.out.println(queue.toString());
         queue.pop();
-        return(queue.toString());
+        System.out.println(queue.toString());
    
         
 

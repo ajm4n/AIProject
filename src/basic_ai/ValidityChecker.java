@@ -21,19 +21,15 @@ public class ValidityChecker {
      *@param hash
      */
     public String check8puzzle(String[] hash){
-        
-
         String currentState = hash[0];
         String desiredState = hash[1];
         String[] range = {"0","1","2","3","4","5","6","7","8"};
         boolean contains = true; 
-        
-    
         for(String kw: range){
             if(!currentState.contains(kw) || !desiredState.contains(kw)){
                 contains = false;
             }
-        }
+        } //end check8puzzle
         
 
         if(contains == false){
@@ -47,17 +43,14 @@ public class ValidityChecker {
        
         
     }
-    
-    
-    
-    public String checkMC(String[] hash){
+    public String checkMandC(String[] hash){
         String[] currentState = hash[0].trim().split("");
         String[] desiredState = hash[1].trim().split("");
         Integer[] currentStateInt = new Integer[currentState.length];
         Integer[] desiredStateInt = new Integer[desiredState.length];
         String[] allowedStrings = {"0", "1", "2", "3"};
-        return(Arrays.toString(currentState));
-        return(Arrays.toString(desiredState));
+        System.out.println(Arrays.toString(currentState));
+        System.out.println(Arrays.toString(desiredState));
         
         
         if(currentState.length == 6 && desiredState.length == 6){
@@ -66,12 +59,12 @@ public class ValidityChecker {
                     currentStateInt[i] = Integer.parseInt(currentState[i].trim());
                     desiredStateInt[i] = Integer.parseInt(desiredState[i].trim());
 
-                }
+                } //end try
                 catch(NumberFormatException nfe){
                     return "Integers only.";
-                }
-            }
-        }
+                } //end catch
+            } //end for
+        } //end if
         
         else{
             return "Current state and desired state must be the same length.";
@@ -138,7 +131,7 @@ public class ValidityChecker {
                                     if(row.get(0) == 2){
                                         row.set(0,0);
                                     }
-                                    return(Arrays.toString(row.toArray()));
+                                    System.out.println(Arrays.toString(row.toArray()));
                                     first = true;
                                     second = false;
                                     if(row.get(1) == 2){
@@ -174,7 +167,7 @@ public class ValidityChecker {
                                 if(row.get(0) + row.get(1) >= 2){
                                     row.set(1, row.get(1)- 1);
                                 }
-                                return(Arrays.toString(row.toArray()));
+                                System.out.println(Arrays.toString(row.toArray()));
                                 
                                 }
                                 first = false;
@@ -190,7 +183,7 @@ public class ValidityChecker {
                                     if(row.get(0) == 2){
                                         row.set(0,0);
                                     }
-                                    return(Arrays.toString(row.toArray()));
+                                    System.out.println(Arrays.toString(row.toArray()));
                                     first = true;
                                     second = false;
                                     if(row.get(1) == 2){
@@ -201,7 +194,7 @@ public class ValidityChecker {
                         timesLooped += 1;
                 }
             }
-            }
+            }//end checkMandC
         return "Look at console output.";
 
         }

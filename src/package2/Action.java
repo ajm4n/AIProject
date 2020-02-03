@@ -14,11 +14,11 @@ public class Action {
     private String action;
     public Action(String action){
         this.action = action;       
-    }
+    } //end action
     
     @Override
     public String toString(){
         return action;
-    }
+    } //end tostring
     
 }

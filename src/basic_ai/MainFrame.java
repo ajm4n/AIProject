@@ -149,7 +149,7 @@ public class MainFrame extends javax.swing.JFrame {
             outputArea.append("The data is sent to the the checker in this form: " + Arrays.toString(inputArr) + "\n");
 
             if(inputArr.length == 2){
-            String returnedData = checker.checkMC(inputArr);
+            String returnedData = checker.checkMandC(inputArr);
             outputArea.append("After processing the data , the checker thinks: \n" + returnedData);
 
             }

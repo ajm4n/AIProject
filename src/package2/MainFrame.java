@@ -121,7 +121,7 @@ public class MainFrame extends javax.swing.JFrame {
         returnedData = checker.check8puzzle(inputfield);
         }
         else if(inputfield.startsWith("M&C#")){
-          returnedData = checker.checkMC(inputfield);
+          returnedData = checker.checkMandC(inputfield);
 
         }
         outputArea.append("Your input: \n" + returnedData);

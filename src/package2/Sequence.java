@@ -27,7 +27,7 @@ public class Sequence {
     @Override
     public String toString(){
         return Arrays.toString(countActionsTaken.toArray());
-    }
+    } //end sequence
     
     
     public static void main(String[] args){
@@ -40,7 +40,7 @@ public class Sequence {
                 actions.add(new Action("Right"));
             }
         }
-        return(actions.toString());
-    }
+        System.out.println(actions.toString());
+    } //end main
     
 }
