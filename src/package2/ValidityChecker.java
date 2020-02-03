@@ -41,7 +41,7 @@ public class ValidityChecker {
         
         // if contains = false send hint to user
         if(contains == false){
-            return "Inputted puzzle is not valid, \n \"Ex: 8puzzle#XXXXXXXXX#XXXXXXXXX. Please make sure the range of numbers is between 0 and 8 with no repeats,";
+           return "Inputted puzzle is not valid, \n \"Ex: 8puzzle#XXXXXXXXX#XXXXXXXXX. Please make sure the range of numbers is between 0 and 8 with no repeats,";
         }
         //Since boolean only has two outcomes else if is not needed
         //Return a message to the user telling them the puzzle is valid       
@@ -56,8 +56,18 @@ public class ValidityChecker {
     
     
     
-    public String checkMC(String puzzzle){
-        return "";
+    public String checkMC(String input){
+        String[] hash = parseInput(input);
+        String currentState = hash[0];
+        String desiredState = hash[1]; 
+        
+        if(currentState.equals(new StringBuilder(desiredState).reverse().toString())){
+            return "Puzzle is valid";
+        }
+        else{
+            return "Puzzle is not valid";
+        }
+ 
     }
     
     

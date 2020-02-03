@@ -9,6 +9,6 @@ package package2;
  *
  * @author Ryan
  */
-public class Problem {
+public abstract class Problem {
     
 }

@@ -30,13 +30,13 @@ public class Node {
         this.action = action;
         this.setParent(parent);
         this.pathCost = pathCost;
+        childNodes = new ArrayList<Node>();
     
     }
     
     public void addChild(Action action, int pathCost){
         Node child = new Node(action, this, pathCost);
         child.setParent(this);
-        this.childNodes.add(child);
     }
     
     public String getChildren(){
@@ -62,6 +62,6 @@ public class Node {
         parentNode1.addChild(new Action("childNode"),1);
         parentNode1.addChild(new Action("childNode"),1);
 
-        System.out.println(parentNode1.getChildren());
+
     }
 }

@@ -20,7 +20,7 @@ public class QueueFIFO<T>{
     
     public QueueFIFO(){list = new ArrayList<>();}
 
-        
+          
     public void insert(T node){
         list.add(node);
     }
@@ -51,7 +51,7 @@ public class QueueFIFO<T>{
         System.out.println(queue.toString());
         queue.pop();
         System.out.println(queue.toString());
-
+   
         
 
         

@@ -118,8 +118,16 @@ public class MainFrame extends javax.swing.JFrame {
     private void processButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processButtonActionPerformed
         outputArea.setText("");
         String input = inputField.getText();
+        String returnedData= "";
         
-        String returnedData = checker.check8puzzle(input);
+        if(input.startsWith("8puzzle#")){
+
+        returnedData = checker.check8puzzle(input);
+        }
+        else if(input.startsWith("M&C#")){
+          returnedData = checker.checkMC(input);
+
+        }
         outputArea.append("After processing the data the checker has determined: \n" + returnedData);
 
         
