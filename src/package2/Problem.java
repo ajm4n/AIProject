@@ -7,7 +7,7 @@ package package2;
 
 /**
  *
- * @author Ryan
+ * @author AJ. help from Ryan
  */
 public abstract class Problem {
     

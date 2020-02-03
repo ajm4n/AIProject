@@ -6,18 +6,18 @@ import java.util.Arrays;
 
 /**
  *
- * @author ryanharris
+ * @author AJ, help from Ryan
  */
 public class Sequence {
-    private ArrayList<Action> actionsTaken;
+    private ArrayList<Action> countActionsTaken;
 
     public Sequence(){
-        actionsTaken = new ArrayList<>();
+        countActionsTaken = new ArrayList<>();
     }
     
     public void add(Action action)
     {
-        actionsTaken.add(action);
+        countActionsTaken.add(action);
     }  
     
     public ArrayList<Action> getSequence(ArrayList<Action> sequence){
@@ -26,7 +26,7 @@ public class Sequence {
     
     @Override
     public String toString(){
-        return Arrays.toString(actionsTaken.toArray());
+        return Arrays.toString(countActionsTaken.toArray());
     }
     
     
@@ -40,9 +40,7 @@ public class Sequence {
                 actions.add(new Action("Right"));
             }
         }
-        System.out.println(actions.toString());
-
-        
+        return(actions.toString());
     }
     
 }

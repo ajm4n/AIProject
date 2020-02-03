@@ -7,7 +7,8 @@ package package2;
 
 /**
  *
- * @author Ryan
+ * @author AJ, help from Ryan Harris
+ * 
  */
 public class Agent {
     private QueueFIFO queue = new QueueFIFO();

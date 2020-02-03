@@ -11,46 +11,46 @@ import java.util.NoSuchElementException;
 
 /**
  *
- * @author ryanharris
+ * @author AJ, help from Ryan
  * @param <T>
  */
 public class QueueFIFO<T>{
 
-    private ArrayList<T> list;
+    private ArrayList<T> arrayList;
     
-    public QueueFIFO(){list = new ArrayList<>();}
+    public QueueFIFO(){arrayList = new ArrayList<>();}
 
           
     public void insert(T node){
-        list.add(node);
+        arrayList.add(node);
     }
     
     public void pop() throws NoSuchElementException {
-        if(list.isEmpty())
-            throw new NoSuchElementException("Trying to delete from an empty queue");
+        if(arrayList.isEmpty())
+            throw new NoSuchElementException("Can't delete an empty queue!");
         
-        list.remove(0);
+        arrayList.remove(0);
    
     }
    
     public boolean isEmpty(){
-        return list.isEmpty();
+        return arrayList.isEmpty();
     }
     
     @Override
     public String toString(){
-        return Arrays.toString(list.toArray());
+        return Arrays.toString(arrayList.toArray());
     }
 
 
     
     public static void main(String[] args){
         QueueFIFO queue = new QueueFIFO();
-        Action string = new Action("Hello");
+        Action string = new Action("Hi!");
         queue.insert(string);
-        System.out.println(queue.toString());
+        return(queue.toString());
         queue.pop();
-        System.out.println(queue.toString());
+        return(queue.toString());
    
         
 

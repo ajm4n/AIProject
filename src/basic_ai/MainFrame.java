@@ -9,14 +9,14 @@ import java.util.Arrays;
 
 /**
  *
- * @author ryanharris
+ * @author AJ Hammond, lots of help from Ryan Harris
  */
 public class MainFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainFrame
      */
-    private ValidityChecker checker = new ValidityChecker(); //creates a validity checker object
+    private ValidityChecker checker = new ValidityChecker(); 
     
     public MainFrame() {
         initComponents();
@@ -42,6 +42,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,52 +64,56 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Forms of puzzles:");
+        jLabel1.setText("Accepted forms:");
 
         jLabel2.setText("8puzzle#XXXXXXXXX#XXXXXXXXX ");
 
         jLabel3.setText("M&C#XXXXXX#XXXXXX");
+
+        jLabel4.setText("AJ's scuffed Artificial Intelligence");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(processButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(clearText, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(41, 41, 41))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(inputField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(processButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(167, 167, 167)
+                            .addComponent(clearText, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(139, 139, 139))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addComponent(jLabel4)
+                .addGap(8, 8, 8)
+                .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(processButton)
                     .addComponent(clearText))
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,44 +125,41 @@ public class MainFrame extends javax.swing.JFrame {
         
         if(input.startsWith("8puzzle#")){
             //parse input here
-            outputArea.append("You have inputted: " + input + "\n");
+            outputArea.append("Your input: " + input + "\n");
             input = input.replace("8puzzle#", "").replace("#", " ");
             String[] inputArr = input.split(" ");
-            
-        
-            outputArea.append("The data is sent to the validity checker in this form: " + Arrays.toString(inputArr) + "\n");
+       
+            outputArea.append("The data is sent to the checker in this form: " + Arrays.toString(inputArr) + "\n");
 
             if(inputArr.length == 2){
             String returnedData = checker.check8puzzle(inputArr);
-            outputArea.append("After processing the data the checker has determined: \n" + returnedData);
-
+            outputArea.append("After processing, the checker thinks: \n" + returnedData);
             }
             else{
-                outputArea.append("Make sure puzzle is in form 8puzzle#XXXXXXXXX#XXXXXXXXX");
+                outputArea.append("Make sure input is in this form: 8puzzle#XXXXXXXXX#XXXXXXXXX");
             }
         }
         
   
         else if(input.startsWith("M&C#")){
-            outputArea.append("You have inputted: " + input + "\n");
+            outputArea.append("Your input: " + input + "\n");
             input = input.replace("M&C#", "").replace("#", " ");
             String[] inputArr = input.split(" ");
-            
-        
-            outputArea.append("The data is sent to the validity checker in this form: " + Arrays.toString(inputArr) + "\n");
+                 
+            outputArea.append("The data is sent to the the checker in this form: " + Arrays.toString(inputArr) + "\n");
 
             if(inputArr.length == 2){
             String returnedData = checker.checkMC(inputArr);
-            outputArea.append("After processing the data the checker has determined: \n" + returnedData);
+            outputArea.append("After processing the data , the checker thinks: \n" + returnedData);
 
             }
             else{
-                outputArea.append("Make sure puzzle is in form 8puzzle#XXXXXXXXX#XXXXXXXXX");
+                outputArea.append("Make sure puzzle is in this example form: 8puzzle#XXXXXXXXX#XXXXXXXXX");
             }
         }
         
         else{
-            outputArea.append("Not a valid puzzle");
+            outputArea.append("Not a valid puzzle! Please use the example forms.");
         }
         
         
@@ -165,8 +167,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     
     private void clearTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearTextActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here:       
         outputArea.setText("");
     }//GEN-LAST:event_clearTextActionPerformed
 
@@ -211,6 +212,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea outputArea;
     private javax.swing.JButton processButton;

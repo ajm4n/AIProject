@@ -7,14 +7,13 @@ package package2;
 
 /**
  *
- * @author ryanharris
+ * @author AJ, help from ryan
  */
 public class Action {
     
     private String action;
     public Action(String action){
-        this.action = action;
-        
+        this.action = action;       
     }
     
     @Override

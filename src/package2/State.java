@@ -7,7 +7,7 @@ package package2;
 
 /**
  *
- * @author ryanharris
+ * @author AJ, help from Ryan
  */
 public class State {
     

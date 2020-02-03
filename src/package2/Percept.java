@@ -7,18 +7,18 @@ package package2;
 
 /**
  *
- * @author ryanharris
+ * @author AJ, help from Ryan
  */
 public class Percept {
-    private String percept;
+    private String p;
     
     public Percept(String percept){
-        this.percept = percept;
+        this.p = percept;
     }
     
     @Override
     public String toString(){
-        return percept;
+        return p;
     }
             
 }

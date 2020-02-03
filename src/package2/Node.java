@@ -10,28 +10,27 @@ import java.util.Arrays;
 
 /**
  *
- * @author ryanharris
+ * @author AJ, help from Ryan Harris
  */
 public class Node {
     private State state;
-    private Node parent =null;
-    private Action action;
     private int pathCost;
-    private ArrayList<Node> childNodes;
+    private Node parent =null;
+    private Action a;
+    private ArrayList<Node> cNodes;
     
     
     public Node(Action action, int pathCost){
-        this.action=action;
+        this.a=action;
         this.pathCost = pathCost;
     }
     
     
     public Node(Action action, Node parent, int pathCost){
-        this.action = action;
+        this.a = action;
         this.setParent(parent);
         this.pathCost = pathCost;
-        childNodes = new ArrayList<Node>();
-    
+        cNodes = new ArrayList<Node>();
     }
     
     public void addChild(Action action, int pathCost){
@@ -40,7 +39,7 @@ public class Node {
     }
     
     public String getChildren(){
-        return Arrays.toString(this.childNodes.toArray());
+        return Arrays.toString(this.cNodes.toArray());
     }
     
     public void setParent(Node parent){
@@ -53,14 +52,14 @@ public class Node {
     }
 
     public void setAction(Action action){
-        this.action = action;  
+        this.a = action;  
     }
     
     
     public static void main(String[] args){
         Node parentNode1 = new Node(new Action("Parent"),1 );
-        parentNode1.addChild(new Action("childNode"),1);
-        parentNode1.addChild(new Action("childNode"),1);
+        parentNode1.addChild(new Action("cNode"),1);
+        parentNode1.addChild(new Action("cNode"),1);
 
 
     }
