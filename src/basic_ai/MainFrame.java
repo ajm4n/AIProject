@@ -23,7 +23,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         outputArea.setEditable(false);
         
-    }
+    } //end mainframe
 
     /**
      * This method is called from within the constructor to initialize the form.

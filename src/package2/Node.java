@@ -13,54 +13,68 @@ import java.util.Arrays;
  * @author AJ, help from Ryan Harris
  */
 public class Node {
+    
     private State state;
-    private int pathCost;
     private Node parent =null;
-    private Action a;
-    private ArrayList<Node> cNodes;
+    private Action action;
+    private int pathCost;
+    private ArrayList<Node> cNodes = new ArrayList<>();
     
-    
-    public Node(Action action, int pathCost){
-        this.a=action;
+
+    public Node(State state){
+        this.state=state;
+    }//nd Node
+    public Node(State state, Action action, int pathCost){
+        this.action = action;
+        this.state = state;
         this.pathCost = pathCost;
-    }
-    
-    
-    public Node(Action action, Node parent, int pathCost){
-        this.a = action;
-        this.setParent(parent);
-        this.pathCost = pathCost;
-        cNodes = new ArrayList<Node>();
-    }
-    
-    public void addChild(Action action, int pathCost){
-        Node child = new Node(action, this, pathCost);
+    }//end Node
+    public void addChild(Node child){
         child.setParent(this);
-    }
-    
-    public String getChildren(){
-        return Arrays.toString(this.cNodes.toArray());
-    }
-    
+        this.cNodes.add(child);
+    }//end addChild
+    public void addChild(State state, Action action, int pathCost){
+        Node child = new Node(state,action,pathCost);
+        this.addChild(child);
+    }//end addChild
+    public ArrayList<Node> getChildren(){
+        return cNodes;
+    }//end getChildren
     public void setParent(Node parent){
         this.parent = parent;
-    
-    }
-    
-    public Action getAction(Action action){
+    }//end setParent
+    public Node getParent(){
+        return parent;
+    }//end get Parent
+    public Action getAction(){
         return action;
-    }
+    }//end get Action
+    public State getState(){
+        return state;
+    } //end getState
+    
+    public int getPathCost(){
+        return pathCost;
+    } //end getPathCost
 
     public void setAction(Action action){
-        this.a = action;  
-    }
+        this.action = action;  
+    } //end setAction
     
     
     public static void main(String[] args){
-        Node parentNode1 = new Node(new Action("Parent"),1 );
-        parentNode1.addChild(new Action("cNode"),1);
-        parentNode1.addChild(new Action("cNode"),1);
-
-
-    }
+        
+        Node root = new Node(new State("331000"));//Initial State
+        Node child1 = new Node(new State("310102"), new Action("row#02"),1);
+        child1.addChild(new State("321001"), new Action("row#01"),1);
+        child1.addChild(new State("300102"), new Action("row#02"),1);  
+        Node child2 = new Node(new State("220111"), new Action("row#11"), 1);
+        child2.addChild(new State("321001"), new Action("row#10"),1 );
+        root.addChild(child1);
+        root.addChild(child2);
+        for(Node node: root.getChildren()){
+            System.out.println(node.getState());
+        }
+ 
+    } //end main
 }

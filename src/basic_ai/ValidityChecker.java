@@ -14,12 +14,15 @@ import java.util.stream.IntStream;
  *
  * @author AJ, lots of help from Ryan
  */
-public class ValidityChecker {
-    
+public class ValidityChecker {   
     /**
      * Ryan really came through with help on this project. I was extremely lost and he really helped out with the code and processing and everything. 
      *@param hash
      */
+    
+
+ //private TextField outputArea;     
+    
     public String check8puzzle(String[] hash){
         String currentState = hash[0];
         String desiredState = hash[1];
@@ -30,18 +33,12 @@ public class ValidityChecker {
                 contains = false;
             }
         } //end check8puzzle
-        
-
         if(contains == false){
             return "Input not valid! \n \"Ex: 8puzzle#XXXXXXXXX#XXXXXXXXX. Please make sure the range of numbers is between 0 and 8 with no repeats,";
-        }
+        } //end if
         else{
            return "Input valid";
-        }
-   
-        
-       
-        
+        } //end else   
     }
     public String checkMandC(String[] hash){
         String[] currentState = hash[0].trim().split("");
@@ -51,7 +48,6 @@ public class ValidityChecker {
         String[] allowedStrings = {"0", "1", "2", "3"};
         System.out.println(Arrays.toString(currentState));
         System.out.println(Arrays.toString(desiredState));
-        
         
         if(currentState.length == 6 && desiredState.length == 6){
             for(int i =0; i < currentState.length; i++){
@@ -124,10 +120,7 @@ public class ValidityChecker {
                         if(second){
                          
                                 if(arrayList1.get(1) >= 0){
-                                    
-                                    
                                     row.set(1, row.get(1) + 1);
-                             
                                     if(row.get(0) == 2){
                                         row.set(0,0);
                                     }
@@ -198,6 +191,8 @@ public class ValidityChecker {
         return "Look at console output.";
 
         }
+    
+    
     }
     
    
